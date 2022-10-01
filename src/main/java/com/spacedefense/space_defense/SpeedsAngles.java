@@ -27,16 +27,12 @@ public class SpeedsAngles {
         return Math.sqrt(this.x * this.x + this.y * this.y); //change to squared later
     }
 
-    public void setLength(double L) {
+    public void setVelocity(double L) {
         double currentLength = this.getLength();
-        // if current length is 0, current angle is undefined
-        // assume current angle is 0
         if (currentLength == 0) {
             this.set(L, 0);
         } else {
-            // scale vector to length 1
             this.multiply(1 / currentLength);
-            //scale vector to length L
             this.multiply(L);
         }
     }

@@ -63,7 +63,7 @@ public class Main extends Application {
             double y = 400 * Math.random();
             drone.point.set(x, y);
 
-            drone.velocity.setLength(15);
+            drone.velocity.setVelocity(15);
             drone.velocity.setAngle(90);
 
             drones.add(drone);
@@ -118,7 +118,7 @@ public class Main extends Application {
 
                     projectile.point.set(ship.point.x, ship.point.y);
 
-                    projectile.velocity.setLength(300);
+                    projectile.velocity.setVelocity(300);
                     projectile.velocity.setAngle(ship.rotation);
 
                     projectile.rotation = ship.rotation;
