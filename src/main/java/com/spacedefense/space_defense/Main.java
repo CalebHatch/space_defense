@@ -12,6 +12,8 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class Main extends Application {
@@ -40,7 +42,9 @@ public class Main extends Application {
      *
      * @param mainPane is the main window in which the game will run inside.
      */
-    public void start(@NotNull Stage mainPane) {
+    public void start(@NotNull Stage mainPane) throws FileNotFoundException {
+        PrintWriter writer = new PrintWriter("Score.txt"); // Creates writer object to write to score file
+
         // Creates the window for the game to run in
         BorderPane main = new BorderPane();
         Scene mainLevel = new Scene(main);
@@ -201,6 +205,10 @@ public class Main extends Application {
                     String winnerText = "You Win!";
                     game.fillText(winnerText, 300, 300);
                     game.strokeText(winnerText, 300, 300);
+
+                    // Writes final score to the Score.txt file
+                    writer.println("You won! Your score was: " + playerScore);
+                    writer.close();
                 }
             }
         };
