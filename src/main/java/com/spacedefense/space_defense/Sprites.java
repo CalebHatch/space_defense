@@ -19,14 +19,16 @@ public class Sprites {
         this.borders = new Hitboxes();
         this.rotation = 0;
 
-        travelTime = 0;
+        travelTime = 0; // How long an object has existed
     }
 
+    // Setter method to add an image for sprites
     public void setImage(String imageFileName) {
-        this.image = new Image(imageFileName);
-        this.borders.setSize(this.image.getWidth(), this.image.getHeight());
+        this.image = new Image(imageFileName); // Define image file name
+        this.borders.setSize(this.image.getWidth(), this.image.getHeight()); // Determine image height and width
     }
 
+    // Method to update condition of desired objects
     public void update(double gameTime) {
         this.travelTime += gameTime;
         this.point.add(this.velocity.x * gameTime, this.velocity.y * gameTime);
