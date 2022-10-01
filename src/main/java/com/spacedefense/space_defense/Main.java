@@ -66,7 +66,7 @@ public class Main extends Application {
         Sprites drone = null;
         for (int i = 0; i < droneAmount; i++) { // Creates a new drone sprite each time up to the defined drone amount
             drone = new Sprites();
-            drone.setImage("C:\\Users\\Caleb\\Documents\\Fall 2022\\space_defense\\src\\images\\drone.png");
+            drone.setImage("C:\\space_defense\\src\\images\\drone.png");
 
             // Sets random point in top portion of screen that the drone will spawn
             double x = 500 * Math.random();

@@ -37,22 +37,22 @@ public class SpeedsAngles {
 
     // Setter method for assigning velocity to desired objects
     public void setVelocity(double L) {
-        double currentLength = this.getLength();
-        if (currentLength == 0) {
+        double Length = this.getLength();
+        if (Length == 0) {
             this.set(L, 0);
         } else {
-            this.multiply(1 / currentLength);
+            this.multiply(1 / Length);
             this.multiply(L);
         }
     }
 
     // Setter method to assign angle (direction) to desired objects
     public void setAngle(double angleDegrees) {
-        double L = this.getLength();
-        double angleRadians = Math.toRadians(angleDegrees);
+        double L = this.getLength(); // Get length from velocity method
+        double angleInRadians = Math.toRadians(angleDegrees); // Convert degrees to radians
 
-        this.x = L * Math.cos(angleRadians);
-        this.y = L * Math.sin(angleRadians);
+        this.x = L * Math.cos(angleInRadians);
+        this.y = L * Math.sin(angleInRadians);
     }
 
 }
