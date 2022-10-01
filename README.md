@@ -14,7 +14,7 @@ This program was made in Java and used JavaFX.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
+I found these website useful while making my project.
 * [Oracle Docs][(https://docs.oracle.com/javase/8/docs/api/java/awt/Rectangle.html#intersects-java.awt.Rectangle-)]
 * [Processing][(https://processing.org/reference/ArrayList.html)]
 
