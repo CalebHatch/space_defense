@@ -30,14 +30,16 @@ public class Sprites {
 
     // Method to update condition of desired objects
     public void update(double gameTime) {
-        this.travelTime += gameTime;
+        this.travelTime += gameTime; // Increment up time an object has existed
+        // Update according to defined game time
         this.point.add(this.velocity.x * gameTime, this.velocity.y * gameTime);
     }
 
+    // Method to render sprites
     public void render(@NotNull GraphicsContext game) {
         game.save();
 
-        game.translate(this.point.x, this.point.y);
+        game.translate(this.point.x, this.point.y); // Point in which object is rendered
         game.rotate(this.rotation);
         game.translate(-this.image.getWidth() / 2, -this.image.getHeight() / 2);
         game.drawImage(this.image, 0, 0);
@@ -45,12 +47,13 @@ public class Sprites {
         game.restore();
     }
 
+    // Getter method for sprite hitboxes
     public Hitboxes getBorders() {
-        this.borders.setPosition(this.point.x, this.point.y);
+        this.borders.setPosition(this.point.x, this.point.y); // Sets point where hitbox is
         return this.borders;
     }
 
-
+    // Helps define behavior for if sprites overlap
     public boolean overlap(@NotNull Sprites other) {
         return this.getBorders().overlap(other.getBorders());
     }
