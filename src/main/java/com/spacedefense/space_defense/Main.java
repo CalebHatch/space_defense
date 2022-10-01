@@ -53,12 +53,12 @@ public class Main extends Application {
         // Loads the sprite for the background
         Sprites background = new Sprites(); // load new sprite
         background.point.set(400, 300); // places sprite in window
-        background.setImage("C:\\Users\\Caleb\\Documents\\Fall 2022\\space_defense\\src\\images\\space.png");
+        background.setImage("C:\\space_defense\\src\\images\\space.png");
 
         // Loads the sprite for the player's ship
         Sprites ship = new Sprites();
         ship.point.set(400, 550);
-        ship.setImage("C:\\Users\\Caleb\\Documents\\Fall 2022\\space_defense\\src\\images\\ship.png");
+        ship.setImage("C:\\space_defense\\src\\images\\ship.png");
 
         int droneAmount = 10; // Defines the amount of drones that the player will be facing
         ArrayList<Sprites> drones = new ArrayList<>(); // An ArrayList of drones to streamline interaction
@@ -142,7 +142,7 @@ public class Main extends Application {
                 if (pressedOnce.contains("SPACE")) { // The space key can not be held down like the other keys can
                     // Once the space key is pressed, the sprite for the projectile will be accessed
                     Sprites projectile = new Sprites();
-                    projectile.setImage("C:\\Users\\Caleb\\Documents\\Fall 2022\\space_defense\\src\\images\\projectile.png");
+                    projectile.setImage("C:\\space_defense\\src\\images\\projectile.png");
 
                     projectile.point.set(ship.point.x, ship.point.y); // Set projectile initial point at ship's point
 
