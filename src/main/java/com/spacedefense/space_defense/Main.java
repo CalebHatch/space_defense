@@ -37,6 +37,7 @@ public class Main extends Application {
     /**
      * The bulk of the program. A window is created, sprites are loaded, and the way in which those sprites interact
      * are all defined. Calls upon Hitboxes, SpeedsAngles, and Sprites classes.
+     *
      * @param mainPane is the main window in which the game will run inside.
      */
     public void start(@NotNull Stage mainPane) {
