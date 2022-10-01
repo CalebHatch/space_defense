@@ -16,8 +16,8 @@ import java.util.ArrayList;
 
 public class Main extends Application {
 
-    int playerScore;
-    int scoreIncrement = 50;
+    int playerScore; // Initializer for player's score
+    int scoreIncrement = 50; // Player's score goes up in increments of 50
 
     /**
      * Drives the program. Will try to launch the program, and will throw an error if unsuccessful.
@@ -67,35 +67,41 @@ public class Main extends Application {
             drone = new Sprites();
             drone.setImage("C:\\Users\\Caleb\\Documents\\Fall 2022\\space_defense\\src\\images\\drone.png");
 
+            // Sets random point in top portion of screen that the drone will spawn
             double x = 500 * Math.random();
             double y = 400 * Math.random();
-            drone.point.set(x, y);
+            drone.point.set(x, y); // Sets drone position
 
-            drone.velocity.setVelocity(15);
-            drone.velocity.setAngle(90);
+            drone.velocity.setVelocity(15); // Sets speed of drone
+            drone.velocity.setAngle(90); // Sets direction of drone (drone moves down towards player's ship)
 
-            drones.add(drone);
+            drones.add(drone); // Add this drone and its properties to the ArrayList of drones
         }
 
+        // ArrayList of keys that the user has pressed
         ArrayList<String> pressedKeys = new ArrayList<>();
+        // ArrayList of keys that the user can only press once before needing to release
         ArrayList<String> pressedOnce = new ArrayList<>();
 
+        // Handles event in which the player presses a key down
         mainLevel.setOnKeyPressed(
                 (KeyEvent event) ->
                 {
-                    String keyName = event.getCode().toString();
+                    String keyName = event.getCode().toString(); // Gets name of the key
                     if (!pressedKeys.contains(keyName) || (!pressedOnce.contains(keyName))) {
-                        pressedKeys.add(keyName);
-                        pressedOnce.add(keyName);
+                        // Adds key to pressedKeys ArrayList
+                        pressedKeys.add(keyName); // The key can be held down for multiple inputs
+                        pressedOnce.add(keyName); // The key can not be held down for multiple inputs
                     }
                 }
         );
 
+        // Handles event in which key is released
         mainLevel.setOnKeyReleased(
                 (KeyEvent event) ->
                 {
-                    String keyName = event.getCode().toString();
-                    pressedKeys.remove(keyName);
+                    String keyName = event.getCode().toString(); // Gets key name
+                    pressedKeys.remove(keyName); // Remove that key from the pressedKeys ArrayList
                 }
         );
 
@@ -150,41 +156,47 @@ public class Main extends Application {
                 // Loop to handle the deletion of projectiles after 8 seconds. Memory leak will occur otherwise
                 // However big the ArrayList of projectiles is, the loop will occur
                 for (int i = 0; i < projectiles.size(); i++) {
-                    Sprites projectile = projectiles.get(i);
-                    projectile.update(1 / 60.0);
+                    Sprites projectile = projectiles.get(i); // Get the projectile from ArrayList
+                    projectile.update(1 / 60.0); // Updates projectile status 60 times per second
 
-                    if (projectile.travelTime > 8)
-                        projectiles.remove(projectile);
+                    if (projectile.travelTime > 8) // If projectile has existed for longer than 8 seconds
+                        projectiles.remove(projectile); // Delete the projectile entirely to prevent lag
                 }
 
+                // Loop to handle the behavior of the drone once it has been shot by the player
                 for (int projectileNumber = 0; projectileNumber < projectiles.size(); projectileNumber++) {
-                    Sprites projectile = projectiles.get(projectileNumber);
+                    Sprites projectile = projectiles.get(projectileNumber); // Gets projectile
 
+                    // Nested for loop to get the drone that was shot
                     for (int droneNumber = 0; droneNumber < drones.size(); droneNumber++) {
-                        Sprites drone = drones.get(droneNumber);
-                        if (projectile.overlap(drone)) {
-                            drones.remove(droneNumber);
-                            projectiles.remove(projectileNumber);
-                            playerScore += 50;
+                        Sprites drone = drones.get(droneNumber); // Gets target drone
+                        if (projectile.overlap(drone)) { // If the hitboxes of the projectile and drone collide
+                            drones.remove(droneNumber); // Remove the drone from the game
+                            projectiles.remove(projectileNumber); // Remove the projectile as well
+                            playerScore += 50; // Give the player 50 points
                         }
                     }
                 }
 
+                // Text for the game
                 game.setFont(new Font("Impact", 48));
                 game.setLineWidth(4);
                 game.setFill(Color.GRAY);
                 game.setStroke(Color.LIGHTGRAY);
 
+                // Score is displayed on top right of screen
                 String scoreText = "Score: " + playerScore;
                 game.fillText(scoreText, 270, 80);
                 game.strokeText(scoreText, 270, 80);
 
-                if (playerScore == droneAmount * scoreIncrement) {
+                // Sets win condition
+                if (playerScore == droneAmount * scoreIncrement) { // If the player has defeated every drone
                     game.setFont(new Font("Impact", 48));
                     game.setLineWidth(4);
                     game.setFill(Color.DARKRED);
                     game.setStroke(Color.BLACK);
 
+                    // Display victory message in center of screen
                     String winnerText = "You Win!";
                     game.fillText(winnerText, 300, 300);
                     game.strokeText(winnerText, 300, 300);
@@ -192,8 +204,8 @@ public class Main extends Application {
             }
         };
 
-        mainPane.setTitle("Space Defense!");
-        gameLoop.start();
-        mainPane.show();
+        mainPane.setTitle("Space Defense!"); // Window name
+        gameLoop.start(); // Start the game
+        mainPane.show(); // Show the window and its contents to the user
     }
 }
