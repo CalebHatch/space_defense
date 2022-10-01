@@ -30,8 +30,10 @@ public class Hitboxes {
 
     // Determines if two sprites overlap
     public boolean overlap(@NotNull Hitboxes other) {
+        boolean noOverlap =
+                this.x + this.width < other.x || other.x + other.width < this.x || this.y + this.height < other.y ||
+                        other.y + other.height < this.y; // If x and y values aren't equal in any way, there is overlap
 
-        return this.x + this.width < other.x || other.x + other.width < this.x || this.y + this.height < other.y ||
-                other.y + other.height < this.y;
+        return !noOverlap; // There isn't no overlap (only way I could get it to return correctly)
     }
 }
