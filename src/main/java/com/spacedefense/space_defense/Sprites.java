@@ -49,7 +49,7 @@ public class Sprites {
 
     // Getter method for sprite hitboxes
     public Hitboxes getBorders() {
-        this.borders.setPosition(this.point.x, this.point.y); // Sets point where hitbox is
+        this.borders.setPoint(this.point.x, this.point.y); // Sets point where hitbox is
         return this.borders;
     }
 
