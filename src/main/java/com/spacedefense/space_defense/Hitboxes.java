@@ -2,6 +2,9 @@ package com.spacedefense.space_defense;
 
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Defines size of hitbox, point where hitbox is, and whether a hitbox overlap has occurred
+ */
 public class Hitboxes {
 
     double x;
