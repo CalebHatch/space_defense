@@ -4,6 +4,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Defines rules for game time, rules for travel time as it relates to the game time, how sprites are rendered, and how
+ * desired objects are updated
+ */
 public class Sprites {
     public SpeedsAngles point;
     public SpeedsAngles velocity;
