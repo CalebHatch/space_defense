@@ -49,7 +49,7 @@ public class SpeedsAngles {
     // Setter method to assign angle (direction) to desired objects
     public void setAngle(double angleDegrees) {
         double L = this.getLength(); // Get length from velocity method
-        double angleInRadians = Math.toRadians(angleDegrees); // Convert degrees to radians
+        double angleInRadians = Math.toRadians(angleDegrees); // Convert to radians
 
         this.x = L * Math.cos(angleInRadians);
         this.y = L * Math.sin(angleInRadians);
