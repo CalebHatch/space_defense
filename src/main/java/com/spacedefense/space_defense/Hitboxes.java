@@ -10,6 +10,12 @@ public class Hitboxes {
     double width;
     double height;
 
+    // Helps define attributes of the hitbox
+    public Hitboxes() {
+        this.setSize(0, 0); // Size of hitbox
+        this.setPoint(0, 0); // Where hitbox is
+    }
+
     // Setter method for size of sprite hitbox
     public void setSize(double w, double h) { // Can pass width and height of hitbox
         this.width = w;
@@ -20,12 +26,6 @@ public class Hitboxes {
     public void setPoint(double x, double y) { // Can pass x and y value for placement
         this.x = x;
         this.y = y;
-    }
-
-    // Helps define attributes of the hitbox
-    public Hitboxes() {
-        this.setSize(0, 0); // Size of hitbox
-        this.setPoint(0, 0); // Where hitbox is
     }
 
     // Determines if two sprites overlap
