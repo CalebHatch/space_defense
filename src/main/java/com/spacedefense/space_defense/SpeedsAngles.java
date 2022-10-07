@@ -32,7 +32,7 @@ public class SpeedsAngles {
 
     // Getter method for determining velocity
     public double getLength() {
-        return Math.sqrt(this.x * this.x + this.y * this.y); //change to squared later
+        return Math.sqrt(Math.pow(this.x, 2) + Math.pow(this.y, 2));
     }
 
     // Setter method for assigning velocity to desired objects
