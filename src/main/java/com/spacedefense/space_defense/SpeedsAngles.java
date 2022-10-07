@@ -12,13 +12,13 @@ public class SpeedsAngles {
         this.set(0, 0);
     }
 
-    // Allows addition of values to determine velocity
+    // Allows addition of values to help determine velocity
     public void add(double ax, double ay) {
         this.x += ax; // Increment defined x value
         this.y += ay; // Increment defined y value
     }
 
-    // Allows multiplication of values to determine velocity
+    // Allows multiplication of values to help determine velocity
     public void multiply(double m) {
         this.x *= m; // Multiply defined x value
         this.y *= m; // Multiply defined y value
