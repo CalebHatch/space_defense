@@ -57,12 +57,12 @@ public class Main extends Application {
         // Loads the sprite for the background
         Sprites background = new Sprites(); // load new sprite
         background.point.set(400, 300); // places sprite in window
-        background.setImage("\\space_defense\\src\\images\\space.png");
+        background.setImage("C:\\space_defense\\src\\images\\space.png");
 
         // Loads the sprite for the player's ship
         Sprites ship = new Sprites();
         ship.point.set(400, 550);
-        ship.setImage("\\space_defense\\src\\images\\ship.png");
+        ship.setImage("C:\\space_defense\\src\\images\\ship.png");
 
         int droneAmount = 10; // Defines the amount of drones that the player will be facing
         ArrayList<Sprites> drones = new ArrayList<>(); // An ArrayList of drones to streamline interaction
@@ -70,7 +70,7 @@ public class Main extends Application {
         Sprites drone = null;
         for (int i = 0; i < droneAmount; i++) { // Creates a new drone sprite each time up to the defined drone amount
             drone = new Sprites();
-            drone.setImage("\\space_defense\\src\\images\\drone.png");
+            drone.setImage("C:\\space_defense\\src\\images\\drone.png");
 
             // Sets random point in top portion of screen that the drone will spawn
             double x = 500 * Math.random();
@@ -146,7 +146,7 @@ public class Main extends Application {
                 if (pressedOnce.contains("SPACE")) { // The space key can not be held down like the other keys can
                     // Once the space key is pressed, the sprite for the projectile will be accessed
                     Sprites projectile = new Sprites();
-                    projectile.setImage("\\space_defense\\src\\images\\projectile.png");
+                    projectile.setImage("C:\\space_defense\\src\\images\\projectile.png");
 
                     projectile.point.set(ship.point.x, ship.point.y); // Set projectile initial point at ship's point
 
