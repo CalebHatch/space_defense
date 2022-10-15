@@ -4,6 +4,8 @@ I wanted to learn more about how video games are made in Java. I also wanted to 
 
 Space Defense is a game in which you shoot drones coming towards you to defend the galaxy! Use the A and D keys to rotate left and right respectively. Use the spacebar to shoot.
 
+Game files are in the src folder.
+
 [Software Demo Video](http://youtube.link.goes.here)
 
 # Development Environment
